@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import api from '../../services/api';
+import styles from '../../../style/style';
 
 export default function Simpson() {
     const [simpsonInput, setSimpson] = useState('');
@@ -48,22 +49,18 @@ export default function Simpson() {
 
             {personagem && (
                 <View style={styles.addressarea}>
-                    <Text>
-                        <Text style={styles.boldText}>Nome: </Text>
+                    <Text style={styles.textResponse}>
+                        <Text style={styles.nomeText}>Nome: </Text>
                         {personagem.character}
                     </Text>
 
-                    <Text>
-                        <Text style={styles.boldText}>Citação: </Text>
+                    <Text style={styles.textResponse}>
+                        <Text style={styles.nomeText}>Citação: </Text>
                         {personagem.quote}
                     </Text>
 
                     <Image
-                        style={{
-                            width: 100,
-                            height: 100,
-                            resizeMode: "contain",
-                        }}
+                        style={styles.personagemImage}
                         source={{
                             uri: `${personagemImage}`,
                         }}
@@ -75,54 +72,3 @@ export default function Simpson() {
     );
 
 }
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        backgroundColor: '#009DDC',
-        flex: '1',
-        padding: '20px',
-    },
-
-    tittle: {
-        fontSize: '20px',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-    },
-
-    input: {
-        backgroundColor: '#FFF',
-        borderRadius: '5px',
-        color: '#2F48D4',
-        fontSize: '16px',
-        marginTop: '20px',
-        width: '100%',
-        height: '35px',
-        padding: '10px',
-    },
-
-    button: {
-        alignItems: 'center',
-        backgroundColor: '#FED41D',
-        borderRadius: '5px',
-        marginTop: '20px',
-        padding: '8px',
-        width: '100%',
-    },
-
-    buttonText: {
-        color: '#fff',
-        fontSize: '18px',
-        fontSeight: 'bold',
-        textTransform: 'uppercase',
-    },
-
-    boldText: {
-        fontWeight: 'bold',
-    },
-
-    addressarea: {
-        alignItems: 'left',
-        marginTop: '15px',
-    },
-});
